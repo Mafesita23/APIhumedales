@@ -7,7 +7,7 @@ const HumedalesSchema = new mongoose.Schema({
     img: {
         type: String
     },
-    RAMSAR: {
+    ramsar: {
         type: String
     },
     location: {

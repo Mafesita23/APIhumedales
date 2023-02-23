@@ -2,6 +2,8 @@ const { httpError } = require('../helpers/handleError')
 const userModel = require('../models/Humedales')
 
 const getItems = async (req, res) => {
+
+
     try {
         const listAll = await userModel.find({})
         res.send({ data: listAll })
@@ -16,9 +18,9 @@ const getItem = (req, res) => {
 
 const createItem = async (req, res) => {
     try {
-        const { name, img, RAMSAR, location, departments, ha } = req.body
+        const { name, img, ramsar, location, departments, ha } = req.body
         const resDetail = await userModel.create({
-            name, img, RAMSAR, location, departments, ha
+            name, img, ramsar, location, departments, ha
         })
         res.send({ data: resDetail })
     } catch (e) {
