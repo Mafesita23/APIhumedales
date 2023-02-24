@@ -12,7 +12,17 @@ const getItems = async (req, res) => {
     }
 }
 
-const getItem = (req, res) => {
+const getItem = async (req, res) => {
+  try {
+    const itemId = req.params.id;
+    const item = await userModel.findById(itemId);
+    if (!item) {
+      return res.status(404).send({ message: 'Item not found' });
+    }
+    res.send({ data: item });
+  } catch (e) {
+    httpError(res, e);
+  }
 
 }
 
@@ -29,11 +39,36 @@ const createItem = async (req, res) => {
 }
 
 
-const updateItem = () => {
+const updateItem = async (req, res) => {
+  try {
+    const itemId = req.params.id;
+    const { receipt, date, name, concept, value } = req.body;
+    const item = await userModel.findByIdAndUpdate(
+      itemId,
+      { receipt, date, name, concept, value },
+      { new: true }
+    );
+    if (!item) {
+      return res.status(404).send({ message: 'Item not found' });
+    }
+    res.send({ data: item });
+  } catch (e) {
+    httpError(res, e);
+  }
 
 }
 
-const deleteItem = () => {
+const deleteItem = async (req, res) => {
+  try {
+    const itemId = req.params.id;
+    const item = await userModel.findByIdAndDelete(itemId);
+    if (!item) {
+      return res.status(404).send({ message: 'Item not found' });
+    }
+    res.send({ data: item });
+  } catch (e) {
+    httpError(res, e);
+  }
 
 }
 
