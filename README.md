@@ -1,7 +1,7 @@
 API HUMEDALES
 
 Contenido de la API
-Es una api rest que contiene informacion de los humedales de Bogotá en donde podras encontrar información sobre localizacion, si es ramsar y extension en ha (hectareas)
+Es una api rest que contiene información de los humedales de Bogotá en donde podrás encontrar información sobre localización, si es ramsar y extensión en ha (hectáreas)
 
 
 Tecnologias Aplicadas
