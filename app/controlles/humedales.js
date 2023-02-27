@@ -42,10 +42,10 @@ const createItem = async (req, res) => {
 const updateItem = async (req, res) => {
   try {
     const itemId = req.params.id;
-    const { receipt, date, name, concept, value } = req.body;
+    const { name, img, ramsar, location, departments, ha } = req.body;
     const item = await userModel.findByIdAndUpdate(
       itemId,
-      { receipt, date, name, concept, value },
+      { name, img, ramsar, location, departments, ha },
       { new: true }
     );
     if (!item) {
