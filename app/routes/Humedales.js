@@ -3,15 +3,140 @@ const router = express.Router()
 const { getItems, getItem, createItem, deleteItem, updateItem } = require('../controlles/humedales')
 
 
-router.get('/', getItems)
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *    Humedales:
+ *      type: object
+ *      properties:
+ *         name:
+ *           type: string
+ *           description: name of wetlands
+ *         img:
+ *           type: string
+ *           description: img
+ *         ramsar:
+ *           type: string
+ *           description: ramsar, or not recognized
+ *         location:
+ *           type: string
+ *           description: location within bogota
+ *         departments:
+ *           type: string
+ *           description: wetlands within Bogota
+ *         ha:
+ *           type: number
+ *           description: amount of ha
+ */
 
+/**
+ * @swagger
+ * /:
+ *  get:
+ *    sumary: return all humedales
+ *    tags: [Humedales]
+ *    responses:
+ *      200:
+ *        description: all humedales!
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                 $ref: '#/components/schemas/Humedales'
+ */
+router.get('/' , getItems)
+/**
+ * @swagger
+ * /{id}:
+ *  get:
+ *    sumary: return one humedales
+ *    tags: [Humedales]
+ *    parameters:
+ *    - in: path
+ *      name: id
+ *      schema:
+ *        type: string
+ *        required: true
+ *        description: the user id
+ *    responses:
+ *      200:
+ *        description: one create humedales!
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                 $ref: '#/components/schemas/Humedales'
+ *      400:
+ *       description: user not found!
+ */
 router.get('/:id', getItem)
 
-router.post('/',createItem)
+/**
+ * @swagger
+ * /:
+ *  post:
+ *    sumary: create a new humedal
+ *    tags: [Humedales]
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *         schema:
+ *          type: object
+ *          $ref: '#/components/schemas/Humedales'
+ *    responses:
+ *      200:
+ *        description: nuevo humedal creado!
+ */
+router.post('/', createItem)
 
+
+
+/**
+ * @swagger
+ * /{id}:
+ *  patch:
+ *    sumary: update one pays
+ *    tags: [Humedales]
+ *    parameters:
+ *    - in: path
+ *      name: id
+ *      schema:
+ *        type: string
+ *        required: true
+ *        description: the user id
+ *    requestBody:
+ *      required: true
+ *      content:
+ *        application/json:
+ *         schema:
+ *          type: object
+ *          $ref: '#/components/schemas/Humedales'
+ *    responses:
+ *      200:
+ *        description: pay update!
+ */
 router.patch('/:id', updateItem)
-
+/**
+ * @swagger
+ * /{id}:
+ *  delete:
+ *    sumary: return one humedales
+ *    tags: [Humedales]
+ *    parameters:
+ *    - in: path
+ *      name: id
+ *      schema:
+ *        type: string
+ *        required: true
+ *        description: the user id
+ *    responses:
+ *      200:
+ *        description: pay update!
+ */
 router.delete('/:id', deleteItem)
-
 
 module.exports = router
