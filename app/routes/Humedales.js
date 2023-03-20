@@ -7,7 +7,7 @@ const { getItems, getItem, createItem, deleteItem, updateItem } = require('../co
  * @swagger
  * components:
  *  schemas:
- *    Humedales:
+ *    humedales:
  *      type: object
  *      properties:
  *         name:
@@ -35,7 +35,7 @@ const { getItems, getItem, createItem, deleteItem, updateItem } = require('../co
  * /:
  *  get:
  *    sumary: return all humedales
- *    tags: [Humedales]
+ *    tags: [humedales]
  *    responses:
  *      200:
  *        description: all humedales!
@@ -44,7 +44,7 @@ const { getItems, getItem, createItem, deleteItem, updateItem } = require('../co
  *            schema:
  *              type: array
  *              items:
- *                 $ref: '#/components/schemas/Humedales'
+ *                 $ref: '#/components/schemas/humedales'
  */
 router.get('/' , getItems)
 /**
@@ -52,7 +52,7 @@ router.get('/' , getItems)
  * /{id}:
  *  get:
  *    sumary: return one humedales
- *    tags: [Humedales]
+ *    tags: [humedales]
  *    parameters:
  *    - in: path
  *      name: id
@@ -68,7 +68,7 @@ router.get('/' , getItems)
  *            schema:
  *              type: array
  *              items:
- *                 $ref: '#/components/schemas/Humedales'
+ *                 $ref: '#/components/schemas/humedales'
  *      400:
  *       description: user not found!
  */
@@ -79,14 +79,14 @@ router.get('/:id', getItem)
  * /:
  *  post:
  *    sumary: create a new humedal
- *    tags: [Humedales]
+ *    tags: [humedales]
  *    requestBody:
  *      required: true
  *      content:
  *        application/json:
  *         schema:
  *          type: object
- *          $ref: '#/components/schemas/Humedales'
+ *          $ref: '#/components/schemas/humedales'
  *    responses:
  *      200:
  *        description: nuevo humedal creado!
@@ -100,7 +100,7 @@ router.post('/', createItem)
  * /{id}:
  *  patch:
  *    sumary: update one pays
- *    tags: [Humedales]
+ *    tags: [humedales]
  *    parameters:
  *    - in: path
  *      name: id
@@ -114,7 +114,7 @@ router.post('/', createItem)
  *        application/json:
  *         schema:
  *          type: object
- *          $ref: '#/components/schemas/Humedales'
+ *          $ref: '#/components/schemas/humedales'
  *    responses:
  *      200:
  *        description: pay update!
@@ -125,7 +125,7 @@ router.patch('/:id', updateItem)
  * /{id}:
  *  delete:
  *    sumary: return one humedales
- *    tags: [Humedales]
+ *    tags: [humedales]
  *    parameters:
  *    - in: path
  *      name: id
