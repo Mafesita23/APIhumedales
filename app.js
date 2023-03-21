@@ -28,7 +28,7 @@ const swaggerSpec ={ //inicio de swagger
 app.use(cors())
 app.use(express.json())
 app.use('/api/1.0', require('./app/routes'))
-app.use('/api-doc', swaggerUI.serve , swaggerUI.setup(swaggerJsDoc(swaggerSpec))) //ruta de la documentacion
+app.use('/docs', swaggerUI.serve , swaggerUI.setup(swaggerJsDoc(swaggerSpec))) //ruta de la documentacion
 
 dbConnect()
 app.listen(PORT, () => {
