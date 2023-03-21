@@ -22,13 +22,13 @@ const swaggerSpec ={ //inicio de swagger
       }
     ]
   },
-  apis:[`${path.join(__dirname, "./app/routes/humedales.js")}`] //rutas
+  apis:[`${path.join(__dirname, "./app/routes/Humedales.js")}`] //rutas
 }
 
 app.use(cors())
 app.use(express.json())
 app.use('/api/1.0', require('./app/routes'))
-app.use('/docs', swaggerUI.serve , swaggerUI.setup(swaggerJsDoc(swaggerSpec))) //ruta de la documentacion
+app.use('/api-doc', swaggerUI.serve , swaggerUI.setup(swaggerJsDoc(swaggerSpec))) //ruta de la documentacion
 
 dbConnect()
 app.listen(PORT, () => {
