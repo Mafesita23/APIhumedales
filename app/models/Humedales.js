@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const humedalesSchema = new mongoose.Schema({
+const HumedalesSchema = new mongoose.Schema({
     name: {
         type: String
     },
@@ -25,4 +25,4 @@ const humedalesSchema = new mongoose.Schema({
         versionKey: false // delete V
     })
 
-module.exports = mongoose.model('humedales', humedalesSchema)
+module.exports = mongoose.model('Humedales', HumedalesSchema)

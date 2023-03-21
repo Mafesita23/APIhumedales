@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { getItems, getItem, createItem, deleteItem, updateItem } = require('../controlles/Humedales')
+const { getItems, getItem, createItem, deleteItem, updateItem } = require('../controllers/Humedales')
 
 
 /**
